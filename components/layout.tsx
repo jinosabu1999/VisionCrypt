@@ -13,9 +13,11 @@ interface LayoutProps {
 }
 
 const tools = [
+  { name: 'Dashboard', href: '/dashboard' },
   { name: 'Password', href: '/' },
   { name: 'Colors', href: '/colors' },
   { name: 'Image Editor', href: '/image-editor' },
+  { name: 'QR Code', href: '/qr-code' },
 ]
 
 export function Layout({ children }: LayoutProps) {
@@ -46,8 +48,8 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-surface to-background">
-      <header className="sticky top-0 z-50 border-b border-border/50 bg-background/75 backdrop-blur-2xl animate-fadeIn">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-background/40 backdrop-blur-2xl animate-fadeIn">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300 group">
               <Image 
@@ -103,14 +105,14 @@ export function Layout({ children }: LayoutProps) {
             </Button>
           </div>
 
-          <nav className="md:hidden flex gap-2 py-2 overflow-x-auto pb-2 scrollbar-hide">
+          <nav className="md:hidden flex gap-2 py-3 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
             {tools.map((tool) => {
               const isActive = pathname === tool.href
               return (
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-600 whitespace-nowrap transition-all duration-300 ${
+                  className={`px-3 py-2 rounded-lg text-xs font-600 whitespace-nowrap transition-all duration-300 min-h-[44px] flex items-center ${
                     isActive
                       ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20'
                       : 'text-foreground hover:bg-surface-alt'
@@ -124,7 +126,7 @@ export function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 md:py-12 animate-slideUp">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12 animate-slideUp">
         {children}
       </main>
     </div>

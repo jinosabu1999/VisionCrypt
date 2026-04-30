@@ -11,6 +11,7 @@ const config = {
       colors: {
         background: "hsl(var(--background))",
         surface: "hsl(var(--surface))",
+        "surface-alt": "hsl(var(--surface-alt))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -36,6 +37,14 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backdropBlur: {
+        xs: "2px",
+      },
+      animation: {
+        "shimmer": "shimmer 2s infinite",
+        "slideUp": "slideUp 0.5s ease-out forwards",
+        "fadeIn": "fadeIn 0.3s ease-out forwards",
       },
     },
   },

@@ -67,7 +67,7 @@
   }
 
   .card-hover {
-    @apply card hover:bg-surface-alt hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 cursor-pointer;
+    @apply card hover:bg-surface-alt/90 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20 cursor-pointer;
   }
 
   .btn-smooth {
@@ -75,11 +75,35 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent;
   }
 
   .glass {
     @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-2xl hover:shadow-primary/20;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:rounded-2xl before:p-0.5 before:bg-gradient-to-r before:from-cyan-500/50 before:via-blue-500/50 before:to-purple-500/50 before:-z-10;
+  }
+
+  .shimmer-bg {
+    @apply bg-gradient-to-r from-surface via-surface-alt to-surface bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .icon-button {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface-alt/50 border border-border/50 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 cursor-pointer;
+  }
+
+  .tab-button {
+    @apply px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 border border-border/30 hover:border-primary/50 hover:bg-primary/10;
+  }
+
+  .tab-button-active {
+    @apply bg-gradient-to-r from-primary to-secondary text-white border-transparent shadow-lg shadow-primary/30;
   }
 }
 
@@ -104,10 +128,91 @@
   to { opacity: 1; }
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  }
+}
+
 .animate-slideUp {
   animation: slideUp 0.5s ease-out forwards;
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  .glass-card {
+    @apply p-4;
+  }
+
+  .card {
+    @apply p-4;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) {
+  .btn-smooth {
+    @apply active:scale-95;
+  }
+
+  button {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  input,
+  textarea,
+  select {
+    @apply text-base;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--secondary));
 }
