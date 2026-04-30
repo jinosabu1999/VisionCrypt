@@ -77,12 +77,12 @@ export function Layout({ children }: LayoutProps) {
               aria-label="Toggle theme"
             >
               <Sun className="h-5 w-5 absolute transition-all duration-300" style={{
-                opacity: isDark ? 0 : 1,
-                transform: isDark ? 'rotate(90deg) scale(0)' : 'rotate(0deg) scale(1)',
+                opacity: theme === 'dark' ? 0 : 1,
+                transform: theme === 'dark' ? 'rotate(90deg) scale(0)' : 'rotate(0deg) scale(1)',
               }} />
               <Moon className="h-5 w-5 absolute transition-all duration-300" style={{
-                opacity: isDark ? 1 : 0,
-                transform: isDark ? 'rotate(0deg) scale(1)' : 'rotate(90deg) scale(0)',
+                opacity: theme === 'dark' ? 1 : 0,
+                transform: theme === 'dark' ? 'rotate(0deg) scale(1)' : 'rotate(90deg) scale(0)',
               }} />
             </Button>
           </div>
