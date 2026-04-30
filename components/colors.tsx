@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { RefreshCw, Copy, Check, Lock, Unlock, Download, Palette } from 'lucide-react'
+import { RefreshCw, Copy, Check, Lock, Unlock, Download } from 'lucide-react'
 import { useToast } from "@/components/ui/use-toast"
 import { motion, AnimatePresence } from "framer-motion"
 

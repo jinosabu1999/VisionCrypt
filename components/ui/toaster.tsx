@@ -1,7 +1,7 @@
 "use client"
 
 import { useToast } from "@/components/ui/use-toast"
-import { Check, AlertCircle, X } from "lucide-react"
+import { Check, AlertCircle } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function Toaster() {

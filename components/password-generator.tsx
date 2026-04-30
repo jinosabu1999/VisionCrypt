@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Copy, RefreshCw, Check, Shield, Zap } from 'lucide-react'
 import { useToast } from "@/components/ui/use-toast"
 import { motion } from "framer-motion"
+import { PasswordStrengthAnalyzer } from "./password-strength-analyzer"
 
 export function PasswordGenerator() {
   const [password, setPassword] = useState("")
@@ -91,6 +92,16 @@ export function PasswordGenerator() {
             )}
           </motion.button>
         </div>
+      </motion.div>
+
+      {/* Password Strength Analyzer */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05 }}
+        className="card"
+      >
+        <PasswordStrengthAnalyzer password={password} />
       </motion.div>
 
       {/* Length Control */}

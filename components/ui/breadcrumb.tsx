@@ -4,8 +4,8 @@ import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const Breadcrumb = React.forwardRef<
-  HTMLNavElement,
-  React.HTMLAttributes<HTMLNavElement>
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement>
 >(({ className, ...props }, ref) => (
   <nav
     ref={ref}
