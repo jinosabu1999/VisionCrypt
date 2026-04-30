@@ -22,12 +22,10 @@ const tools = [
 
 export function Layout({ children }: LayoutProps) {
   const { setTheme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
   const [isDark, setIsDark] = useState(true)
   const pathname = usePathname()
 
   useEffect(() => {
-    setMounted(true)
     // Set initial state based on resolved theme
     setIsDark(resolvedTheme === 'dark' || (!resolvedTheme && true))
   }, [resolvedTheme])
@@ -40,10 +38,6 @@ export function Layout({ children }: LayoutProps) {
       setTheme('dark')
       setIsDark(true)
     }
-  }
-
-  if (!mounted) {
-    return null
   }
 
   return (
