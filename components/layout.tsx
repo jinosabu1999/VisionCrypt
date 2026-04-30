@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes"
 import { Sun, Moon } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
@@ -21,23 +21,11 @@ const tools = [
 ]
 
 export function Layout({ children }: LayoutProps) {
-  const { setTheme, resolvedTheme } = useTheme()
-  const [isDark, setIsDark] = useState(true)
+  const { setTheme, theme } = useTheme()
   const pathname = usePathname()
 
-  useEffect(() => {
-    // Set initial state based on resolved theme
-    setIsDark(resolvedTheme === 'dark' || (!resolvedTheme && true))
-  }, [resolvedTheme])
-
   const toggleTheme = () => {
-    if (resolvedTheme === 'dark') {
-      setTheme('light')
-      setIsDark(false)
-    } else {
-      setTheme('dark')
-      setIsDark(true)
-    }
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
   return (
