@@ -1,13 +1,13 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { Button } from '@/components/UI/button'
-import { Input } from '@/components/UI/input'
-import { Label } from '@/components/UI/label'
-import { Slider } from '@/components/UI/slider'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/UI/select'
+import { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Slider } from '@/components/ui/slider'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Copy, Download, RefreshCw } from 'lucide-react'
-import { useToast } from '@/components/UI/use-toast'
+import { useToast } from '@/components/ui/use-toast'
 import { motion } from 'framer-motion'
 import QRCode from 'qrcode'
 
@@ -29,7 +29,6 @@ export function QRCodeGenerator() {
   })
   const [qrCode, setQrCode] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
   const { toast } = useToast()
 
   const generateQR = async () => {
@@ -144,7 +143,6 @@ export function QRCodeGenerator() {
             <img
               src={qrCode}
               alt="Generated QR Code"
-              ref={canvasRef}
               className="relative w-64 h-64 rounded-lg border-2 border-primary/50"
             />
           </motion.div>

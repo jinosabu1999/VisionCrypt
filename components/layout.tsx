@@ -21,7 +21,7 @@ const tools = [
 ]
 
 export function Layout({ children }: LayoutProps) {
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isDark, setIsDark] = useState(true)
   const pathname = usePathname()

@@ -1,15 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/UI/button'
+import { Button } from '@/components/ui/button'
 import { Download, Copy, Check, ChevronDown } from 'lucide-react'
-import { useToast } from '@/components/UI/use-toast'
+import { useToast } from '@/components/ui/use-toast'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/UI/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 import { motion } from 'framer-motion'
 
 interface ExportButtonProps {
